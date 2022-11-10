@@ -1,0 +1,16 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "lldb",
+      "request": "launch",
+      "args": [],
+      "stopAtEntry": true,
+      "externalConsole": false,
+      "cwd": "/Users/ryazan/Library/Mobile Documents/com~apple~CloudDocs/Desktop/学习文档/Programer/1.C语言/C6/ch05/test",
+      "program": "/Users/ryazan/Library/Mobile Documents/com~apple~CloudDocs/Desktop/学习文档/Programer/1.C语言/C6/ch05/test/build/Debug/outDebug",
+      "MIMode": "gdb"
+    }
+  ]
+}
