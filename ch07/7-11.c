@@ -1,4 +1,6 @@
+// animals.c -- 使用switch语句
 #include <stdio.h>
+#include <ctype.h>
 
 
 int main(void){
@@ -44,10 +46,10 @@ int main(void){
         {
             printf("I recognize only lowercase lettrers.\n");
         }
-        // while (getchar() != '\n')
-        // {
-        //     continue;
-        // }
+        while (getchar() != '\n')    //跳过输入行的剩余部分
+        {
+            continue;
+        }
         
         printf("Please type another letter or a #.\n");
         
