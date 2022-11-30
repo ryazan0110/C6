@@ -1,6 +1,10 @@
 {
     "files.associations": {
         "ratio": "c",
-        "ctype.h": "c"
+        "ctype.h": "c",
+        "__bit_reference": "c",
+        "bitset": "c",
+        "chrono": "c",
+        "unordered_map": "c"
     }
 }
