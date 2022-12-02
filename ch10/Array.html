@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>&#x4ec0;&#x4e48;&#x662f;&#x6570;&#x7ec4;&#xff1f;</title>
+        <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+/* From extension ms-toolsai.jupyter */
+/* These classnames are inherited from bootstrap, but are present in most notebook renderers */
+
+.alert {
+    width: auto;
+    padding: 1em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+.alert > *:last-child {
+    margin-bottom: 0;
+}
+#preview > .alert:last-child {
+    /* Prevent this being set to zero by the default notebook stylesheet */
+    padding-bottom: 1em;
+}
+
+.alert-success {
+    /* Note there is no suitable color available, so we just copy "info" */
+    background-color: var(--theme-info-background);
+    color: var(--theme-info-foreground);
+}
+.alert-info {
+    background-color: var(--theme-info-background);
+    color: var(--theme-info-foreground);
+}
+.alert-warning {
+    background-color: var(--theme-warning-background);
+    color: var(--theme-warning-foreground);
+}
+.alert-danger {
+    background-color: var(--theme-error-background);
+    color: var(--theme-error-foreground);
+}
+
+</style>
+        
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+        
+    </head>
+    <body class="vscode-body vscode-light">
+        <h1 id="什么是数组">什么是数组？</h1>
+<h2 id="数组声明">数组声明</h2>
+<pre><code>/* 一些数组声明*/
+int main(void)
+{
+    float candy[365];      /* 内含365个float类型元素的数组 */
+    char code[12];         /*内含12个char类型元素的数组*/
+    int states[50];        /*内含50个int类型元素的数组 */
+    ...
+}
+</code></pre>
+<h2 id="数组">数组</h2>
+<h3 id="初始化">初始化</h3>
+<ul>
+<li>#define SIZE 4</li>
+<li>使用数组前必须初始化它
+<ul>
+<li>未初始化状态</li>
+<li>int no_data[SIZE];  // 未初始化数组</li>
+</ul>
+</li>
+<li>当初始化列表中的值少于数组元素个数时
+<ul>
+<li>
+<p>int some_data[SIZE] = { 1492, 1066 };</p>
+</li>
+<li>
+<p>for (i = 0; i &lt; SIZE; i++)
+printf(&quot;%2d%14d\n&quot;, i, some_data[i]);</p>
+<pre><code>    i some_data[i]
+    0         1492
+    1         1066
+    2            0
+    3            0
+</code></pre>
+<ul>
+<li>编译器会将剩余元素初始化为0</li>
+</ul>
+</li>
+<li>
+<p>当初始化列表的项数多于数组元素个数</p>
+<ul>
+<li>int array[1] = {1,2,3,4,5,6,7,8,9,10};</li>
+<li>编译器会显示错误</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>使用指定初始化
+<ul>
+<li>int days[MONTHS] = { 0, 1, [4] = 4, 30, 31, [1] = 29 };
+<ul>
+<li>在[4]初始化为 31后，30、31会被初始化为[4]之后的数，也就是[5] [6]</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>给数组元素赋值
+<ul>
+<li>
+<p>C 不允许数组作为一个单元赋值给另一个数组</p>
+<p>int oxen[SIZE] = {5,3,2,8};     /* 初始化没问题 <em>/
+int yaks[SIZE];
+yaks = oxen;                    /</em> 不允许 <em>/
+yaks[SIZE] = oxen[SIZE];        /</em> 数组下标越界 <em>/
+yaks[SIZE] = {5,3,2,8};         /</em> 不起作用 */</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="数组越界">数组越界</h3>
+<ul>
+<li></li>
+<li>使用越界的数组下标，会导致程序改变其他变量的值</li>
+<li>数组元素的编号从0开始，所以最好声明数组时，使用常量符号来表示数组的大小
+#define SIZE 4
+int main(void)
+{
+int arr[SIZE];
+for (i = 0; i &lt; SIZE; i++)
+....</li>
+</ul>
+<h2 id="主数组">主数组</h2>
+<ul>
+<li>float rain[5][12]; // 内含5个数组元素的数组，每个数组元素内含12个float类型的元素</li>
+</ul>
+<h3 id="遍历数组">遍历数组</h3>
+<ol>
+<li>for (year = 0, total = 0; year &lt; YEARS; year++)
+{// 处理每一年的数据
+for (month = 0, subtot = 0; month &lt; MONTHS; month++)
+{
+... // 处理每月的数据
+}<br>
+... //处理每一年的数据
+}
+<ul>
+<li><strong>在 year 不变的情况下，遍历 month</strong></li>
+<li>这种循环用于处理二维数组时
+<ul>
+<li>一个循环处理数组的第1个下标，另一个循环处理数组的第2个下标</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>for (month = 0; month &lt; MONTHS; month++)
+{ // 处理每月的数据
+for (year = 0, subtot =0; year &lt; YEARS; year++)
+{
+... // 处理每年的数据
+}
+... // 处理每月的数据
+}
+<ul>
+<li><strong>在 month 不变的情况下，遍历 year</strong></li>
+<li>这种循环用于处理二维数组时
+<ul>
+<li>一个循环处理数组的第2个下标，另一个循环处理数组的第1个下标</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li>每执行一次外层循环，就完整遍历一次内层循环</li>
+</ul>
+
+        
+        
+    </body>
+    </html>
