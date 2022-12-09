@@ -16,7 +16,7 @@ int main(void){
     while (scanf("%d",&value) == 1 && value > 0)
     {
         ++gameCount;           // 使用文件作用域变量
-        for ( i = value; i >= 0; i--)
+        for ( i = value; i >= 0; i--)   //累加 -> n = (n-1) + 1
         {
             accumulate(i);
         }
@@ -28,5 +28,6 @@ int main(void){
 }
 
 void report_count(){
+    printf("\n");
     printf("Loop executer %d times\n",gameCount);
 }
